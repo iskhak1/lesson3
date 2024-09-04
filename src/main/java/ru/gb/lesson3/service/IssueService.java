@@ -1,6 +1,7 @@
 package ru.gb.lesson3.service;
 
 
+import lombok.Locked;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,9 @@ public class  IssueService {
 
 
 
+    public List<Book> getAllBooks(){
+        return bookRepository.getBooks();
+    }
     public Issue getIssueById(Long id){
         return issueRepository.getIssueById(id);
     }
@@ -76,4 +80,7 @@ public class  IssueService {
     }
 
 
+    public List<Reader> getReaders() {
+      return readerRepository.getReaders();
+    }
 }

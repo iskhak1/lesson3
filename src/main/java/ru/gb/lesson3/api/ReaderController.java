@@ -4,12 +4,15 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.gb.lesson3.model.Reader;
 import ru.gb.lesson3.service.IssueService;
 
 @Log4j2
-@RestController
+@Controller
 @RequestMapping("/readers")
 public class ReaderController {
 
@@ -38,5 +41,12 @@ public class ReaderController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+
+    @GetMapping("/ui/readers")
+    public String readers(Model model){
+        model.addAttribute("readers",service.getReaders());
+        log.info(service.getReaders());
+        return "readers";
+    }
 
 }
