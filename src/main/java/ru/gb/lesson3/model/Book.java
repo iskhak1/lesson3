@@ -1,21 +1,24 @@
 package ru.gb.lesson3.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
-@RequiredArgsConstructor
+@Entity
+@Table(name = "books")
 public class Book  {
 
-    public static long sequence = 1L;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String name;
 
-    private final String name;
-    private final long id;
 
-    public Book(String name){
-        this(name, sequence++);
+    public Book() {
+
     }
 }
 
