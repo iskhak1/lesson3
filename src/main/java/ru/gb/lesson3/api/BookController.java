@@ -45,8 +45,7 @@ public class BookController {
 
     @GetMapping("/ui/books")
     public String books(Model model){
-        model.addAttribute("books",service.getAllBooks());
-        log.info(service.getAllBooks());
+        model.addAttribute("books",service.getAllBook());
         return "books";
     }
 

@@ -44,8 +44,7 @@ public class ReaderController {
 
     @GetMapping("/ui/readers")
     public String readers(Model model){
-        model.addAttribute("readers",service.getReaders());
-        log.info(service.getReaders());
+        model.addAttribute("readers",service.getAllReader());
         return "readers";
     }
 
